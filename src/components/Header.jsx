@@ -10,11 +10,12 @@ import Avatar from "../img/avatar.png";
 import { Link } from "react-router-dom";
 import { useStateValue } from "../context/StateProvider";
 import { actionType } from "../context/reducer";
-import { useState } from "react";
+import { useState, } from "react";
 
 const Header = () => {
   const firebaseAuth = getAuth(app);
   const provider = new GoogleAuthProvider();
+  provider.addScope('https://www.googleapis.com/auth/userinfo.email');
 
   const [{ user, cartShow, cartItems }, dispatch] = useStateValue();
 
@@ -58,7 +59,7 @@ const Header = () => {
       <div className="hidden md:flex w-full h-full items-center justify-between">
         <Link to="/" className="flex items-center gap-2">
           <img src={Logo} className="w-8 object-cover" alt="logo" />
-          <p className="text-headingColor text-xl font-bold">City</p>
+          <p className="text-headingColor text-xl font-bold">Hoa</p>
         </Link>
 
         <div className="flex items-center">
